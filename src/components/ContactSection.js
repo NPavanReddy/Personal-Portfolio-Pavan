@@ -78,12 +78,6 @@ const ContactSection = ({ email, phone }) => (
             {email}
           </a>
         </p>
-        <p>
-          Phone:{" "}
-          <a href={`tel:${phone}`} className="text-indigo-600 hover:underline">
-            {phone}
-          </a>
-        </p>
       </div>
     </div>
   </SectionWrapper>
