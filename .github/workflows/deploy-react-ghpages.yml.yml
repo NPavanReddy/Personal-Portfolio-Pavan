@@ -1,0 +1,38 @@
+# .github/workflows/deploy-react-ghpages.yml
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # This workflow runs when changes are pushed to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # Use a Linux runner
+    permissions:
+      contents: write # Grant write permissions for the GITHUB_TOKEN to push to gh-pages branch
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # Checkout the repository code
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18" # Use Node.js version 18 or higher (adjust if needed)
+
+      - name: Install dependencies
+        run: npm install # Install your project's npm dependencies
+
+      - name: Build React app
+        run: npm run build # Run the React build command to create the 'build' folder
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3 # Use a pre-built action for GitHub Pages deployment
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub's automatically provided token
+          publish_dir: ./build # The directory to publish (the 'build' folder created by npm run build)
+          # The branch to publish to is implicitly 'gh-pages' by default for this action
+          # If your repository is a "User or Organization Page" (e.g., username.github.io/ or orgname.github.io/),
+          # you might need to set 'publish_branch: main' or 'publish_branch: master' instead of gh-pages.
+          # For a Project Page (like your-username.github.io/your-repo-name), 'gh-pages' is the default and correct.
