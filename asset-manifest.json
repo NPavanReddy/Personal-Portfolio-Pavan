@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Personal-Portfolio-Pavan/static/css/main.e5712c8e.css",
+    "main.js": "/Personal-Portfolio-Pavan/static/js/main.60e49b61.js",
+    "static/js/453.b0a57eed.chunk.js": "/Personal-Portfolio-Pavan/static/js/453.b0a57eed.chunk.js",
+    "index.html": "/Personal-Portfolio-Pavan/index.html",
+    "main.e5712c8e.css.map": "/Personal-Portfolio-Pavan/static/css/main.e5712c8e.css.map",
+    "main.60e49b61.js.map": "/Personal-Portfolio-Pavan/static/js/main.60e49b61.js.map",
+    "453.b0a57eed.chunk.js.map": "/Personal-Portfolio-Pavan/static/js/453.b0a57eed.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e5712c8e.css",
+    "static/js/main.60e49b61.js"
+  ]
+}
