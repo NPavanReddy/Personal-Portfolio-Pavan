@@ -1,0 +1,26 @@
+# .github/workflows/deploy.yml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - gh-pages # This workflow runs when changes are pushed to the gh-pages branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Grant write permissions for the GITHUB_TOKEN to push to gh-pages branch
+
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages # Checkout the gh-pages branch
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3 # Use a pre-built action for GitHub Pages deployment
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub's automatically provided token
+          publish_dir: ./ # The directory to publish (gh-pages branch content is already here)
+          # The branch to publish to is implicitly the one this action is run from (gh-pages)
